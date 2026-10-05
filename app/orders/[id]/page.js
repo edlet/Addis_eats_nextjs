@@ -10,7 +10,7 @@ export const dynamic = "force-dynamic";
 export default async function OrderStatusPage({ params }) {
   const { id } = await params;
   const session = await requireSession(`/orders/${id}`);
-  const order = getOwnedOrder(id, session.userId);
+  const order = await getOwnedOrder(id, session.userId);
   if (!order) notFound();
   const initialData = { order };
   return <main className="page-section"><p className="section-kicker">Live order tracking</p><OrderStatus orderId={id} initialData={initialData} /><Link href="/orders" className="text-button">Back to order history</Link></main>;

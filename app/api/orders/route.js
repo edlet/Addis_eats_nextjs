@@ -15,7 +15,13 @@ export async function POST(request) {
   try { body = await request.json(); } catch { return error("Request body must be valid JSON.", 422, { body: "Invalid JSON." }); }
   const result = validateOrder(body);
   if (!result.success) return error("Please correct the highlighted fields.", 422, result.fieldErrors);
-  const order = createOrder(result.data, session.userId);
+  let order;
+  try {
+    order = await createOrder(result.data, session.userId);
+  } catch (cause) {
+    console.error("Failed to persist order:", cause);
+    return error("Ordering is temporarily unavailable.", 503);
+  }
   if (!order) return error("One or more dishes are unavailable.", 422, { items: "Your cart contains an unknown dish." });
   revalidateTag("customer-orders", { expire: 0 });
   revalidatePath("/orders");

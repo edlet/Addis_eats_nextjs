@@ -30,6 +30,8 @@ npm run dev
 
 For staff access, set the server-only `STAFF_ACCESS_CODE` in `.env.local`. Sign in with that code to mint a signed staff session. `/admin/*`, checkout, and order history are protected by the Day 42 server checks; see [AUTH.md](./AUTH.md) for the route map and three attack results.
 
+For Vercel deployments, connect an Upstash Redis database and set `UPSTASH_REDIS_REST_URL` and `UPSTASH_REDIS_REST_TOKEN` as server-side environment variables. Production orders use Redis because Vercel functions cannot persist data in the project filesystem. Local development uses the JSON file under `.next/cache` when these variables are absent.
+
 ## Day 43: production performance
 
 Copy `.env.example` to `.env.local`, set a unique `SESSION_SECRET` and your `STAFF_ACCESS_CODE`, then measure the production build:
