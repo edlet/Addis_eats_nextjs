@@ -1,0 +1,111 @@
+[
+  {
+    "id": 1,
+    "name": "Doro Wat",
+    "price": 240,
+    "category": "Main",
+    "spicy": true,
+    "description": "Slow-cooked chicken, berbere, and a boiled egg.",
+    "image": "https://homepressurecooking.com/wp-content/uploads/2024/07/doro-wat-stew-recipe-1721952786.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Tibs",
+    "price": 280,
+    "category": "Grill",
+    "spicy": true,
+    "description": "Sizzling beef with rosemary, onion, and green pepper.",
+    "image": "https://tse3.mm.bing.net/th/id/OIP.RUiLiN5fAV1_0obTeqBnWQHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3"
+  },
+  {
+    "id": 3,
+    "name": "Shiro",
+    "price": 180,
+    "category": "Vegan",
+    "spicy": false,
+    "description": "Velvety chickpea stew finished with fragrant spices.",
+    "image": "https://www.chefspencil.com/wp-content/uploads/Ethiopian-Shiro-Wat.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Injera Firfir",
+    "price": 150,
+    "category": "Breakfast",
+    "spicy": true,
+    "description": "Shredded injera simmered with berbere and clarified butter.",
+
+  "image": "https://tse2.mm.bing.net/th/id/OIP.Zd7bDt2GUgCDlofDMQypCwHaF7?r=0&rs=1&pid=ImgDetMain&o=7&rm=3"
+  },
+  {
+    "id": 5,
+    "name": "Kitfo",
+    "price": 350,
+    "category": "Main",
+    "spicy": false,
+    "description": "Hand-minced beef seasoned with mitmita and niter kibbeh.",
+    "image": "https://tse4.mm.bing.net/th/id/OIP.bcslIS7xpVUJV_R8TkgClgHaE8?r=0&rs=1&pid=ImgDetMain&o=7&rm=3"
+  },
+  {
+    "id": 6,
+    "name": "Fasting Shiro",
+    "price": 170,
+    "category": "Vegan",
+    "spicy": true,
+    "description": "Red lentils simmered slowly with berbere and garlic.",
+    "image": "https://tse4.mm.bing.net/th/id/OIP.WGtmsC5EV2uNd87nHqfo3QAAAA?r=0&rs=1&pid=ImgDetMain&o=7&rm=3"
+  },
+  {
+    "id": 7,
+    "name": "Gored Gored",
+    "price": 320,
+    "category": "Main",
+    "spicy": true,
+    "description": "Fresh chopped beef cubes with mitmita, spice, and butter.",
+    "image": "https://i.ytimg.com/vi/HWJD4BlJDuQ/maxresdefault.jpg"
+  },
+  {
+    "id": 8,
+    "name": "Alicha Soup",
+    "price": 210,
+    "category": "Soup",
+    "spicy": false,
+    "description": "A mild and aromatic lentil stew with ginger and garlic.",
+    "image": "https://tse1.mm.bing.net/th/id/OIP.jljO6eqAMhFEJdGhFmvTfwHaEK?r=0&rs=1&pid=ImgDetMain&o=7&rm=3"
+  },
+  {
+    "id": 9,
+    "name": "Berbere Chicken Pizza",
+    "price": 390,
+    "category": "Modern",
+    "spicy": true,
+    "description": "Wood-fired pizza topped with berbere chicken and onion.",
+    "image": "https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=900&q=80"
+  },
+  {
+    "id": 10,
+    "name": "Addis Burger",
+    "price": 360,
+    "category": "Modern",
+    "spicy": true,
+    "description": "Crispy beef burger layered with pepper relish and cheese.",
+    "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=900&q=80"
+  },
+  {
+    "id": 11,
+    "name": "Cinnamon Coffee",
+    "price": 120,
+    "category": "Drinks",
+    "spicy": false,
+    "description": "Freshly brewed Ethiopian coffee with warm spice aroma.",
+    "image": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=900&q=80"
+  },
+  {
+    "id": 12,
+    "name": "Avocado Salad",
+    "price": 190,
+    "category": "Healthy",
+    "spicy": false,
+    "description": "Crunchy greens with avocado, tomato, and lemon dressing.",
+    "image": "https://images.unsplash.com/photo-1546793665-c74683f339c1?auto=format&fit=crop&w=900&q=80"
+  }
+]
