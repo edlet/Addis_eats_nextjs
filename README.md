@@ -9,7 +9,8 @@ This project keeps its original React Router customer/admin app and adds the Day
 | `/` | Day 40 home page |
 | `/menu`, `/menu/[id]` | Filterable menu and generated dish detail pages |
 | `/cart`, `/favorites` | Day 40 client-persisted collections |
-| `/checkout`, `/orders`, `/sign-in` | Validated order flow and guest session |
+| `/checkout`, `/orders`, `/orders/[id]`, `/sign-in` | Validated order flow, order history, live status tracking, and customer session |
+| `/staff/orders`, `/staff/sign-in` | Staff-only order desk and status updates |
 | `/api/dishes`, `/api/dishes/[id]`, `/api/orders` | Dish lookup and order API |
 | `/orders/[id]` | Server-rendered order status with five-second client polling |
 | `/login`, `/receipt`, `/admin/*` | Preserved target account, receipt and admin experience |
@@ -28,7 +29,7 @@ npm install
 npm run dev
 ```
 
-For staff access, set the server-only `STAFF_ACCESS_CODE` in `.env.local`. Sign in with that code to mint a signed staff session. `/admin/*`, checkout, and order history are protected by the Day 42 server checks; see [AUTH.md](./AUTH.md) for the route map and three attack results.
+For staff access, set the server-only `STAFF_ACCESS_CODE` in `.env.local`. Sign in at `/staff/sign-in` to open the protected order desk. Staff can advance orders through confirmation, preparation, pickup, delivery, and completion; customers see those changes on their order tracking page. Checkout and customer order history require a valid signed session. See [AUTH.md](./AUTH.md) for the route map and three attack results.
 
 For Vercel deployments, connect an Upstash Redis database; the Vercel integration supplies `UPSTASH_REDIS_REST_KV_REST_API_URL` and `UPSTASH_REDIS_REST_KV_REST_API_TOKEN` as server-side environment variables. Production orders use Redis because Vercel functions cannot persist data in the project filesystem. Local development uses the JSON file under `.next/cache` when Redis variables are absent.
 

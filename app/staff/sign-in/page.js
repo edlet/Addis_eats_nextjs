@@ -7,7 +7,7 @@ export const metadata = { title: "Staff sign in | Addis Eats" };
 export default async function StaffSignInPage({ searchParams }) {
   const session = await getSession();
   const params = await searchParams;
-  const next = safeNext(params?.next, "/admin");
+  const next = safeNext(params?.next, "/staff/orders");
 
   return (
     <main className="account-page">
@@ -17,7 +17,7 @@ export default async function StaffSignInPage({ searchParams }) {
         {session?.role === "staff" ? (
           <>
             <p>Your staff session is active.</p>
-            <Link href="/admin" className="primary-button">Open staff console</Link>
+            <Link href="/staff/orders" className="primary-button">Open order desk</Link>
           </>
         ) : (
           <>

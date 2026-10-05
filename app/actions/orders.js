@@ -2,7 +2,7 @@
 
 import { revalidatePath, updateTag } from "next/cache";
 import { cookies } from "next/headers";
-import { cancelOwnedOrder, createOrder } from "../lib/orders";
+import { cancelOwnedOrder, createOrder, updateOrderStatus as persistOrderStatus } from "../lib/orders";
 import { validateOrder } from "../lib/order-schema";
 import { getSession } from "../lib/session";
 
@@ -40,4 +40,26 @@ export async function cancelOrder(_previousState, formData) {
   updateTag("customer-orders");
   revalidatePath("/orders");
   return { success: true, message: "Order cancelled." };
+}
+
+export async function updateStaffOrderStatus(_previousState, formData) {
+  const session = await getSession();
+  if (session?.role !== "staff") return { success: false, message: "Staff access is required." };
+
+  const orderId = String(formData.get("orderId") || "");
+  const status = String(formData.get("status") || "");
+  let order;
+  try {
+    order = await persistOrderStatus(orderId, status);
+  } catch (error) {
+    console.error("Failed to update order status:", error);
+    return { success: false, message: "Order updates are temporarily unavailable." };
+  }
+  if (!order) return { success: false, message: "That status update is no longer available." };
+
+  updateTag("customer-orders");
+  revalidatePath("/staff/orders");
+  revalidatePath("/orders");
+  revalidatePath(`/orders/${orderId}`);
+  return { success: true, message: `Order moved to ${order.status}.` };
 }

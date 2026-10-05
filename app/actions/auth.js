@@ -33,7 +33,7 @@ export async function signInCustomer(formData) {
 
 export async function signInStaff(formData) {
   const staffCode = String(formData.get("staffCode") || "");
-  const next = safeNext(formData.get("next"), "/admin");
+  const next = safeNext(formData.get("next"), "/staff/orders");
   const nextQuery = `&next=${encodeURIComponent(next)}`;
   const secret = process.env.SESSION_SECRET;
   if (!secret) redirect(`/staff/sign-in?auth=not-configured${nextQuery}`);

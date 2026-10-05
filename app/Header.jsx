@@ -1,5 +1,6 @@
 import Link from "next/link";
 import CartBadge from "./CartBadge";
+import DeliveryAreaSelect from "./DeliveryAreaSelect";
 import { signOut } from "./actions/auth";
 import { getSession } from "./lib/session";
 
@@ -13,12 +14,12 @@ export default async function Header() {
           <span className="brand-stack"><span className="brand-name">Addis Eats</span><span className="brand-tag">Ethiopian food delivery</span></span>
         </Link>
       </div>
-      <div className="delivery-pill"><span className="delivery-icon">AD</span><span><small>Delivering to</small>Bole, Addis Ababa</span></div>
+      <div className="delivery-pill"><span className="delivery-icon" aria-hidden="true">+</span><span><small>Delivering to</small><DeliveryAreaSelect compact /></span></div>
       <nav className="topbar-actions" aria-label="Primary navigation">
         <Link href="/menu" className="search-button">Browse menu</Link>
         <Link href="/favorites" className="search-button">Favorites</Link>
         <Link href="/orders" className="search-button">Orders</Link>
-        {session?.role === "staff" && <Link href="/admin" className="search-button">Staff</Link>}
+        {session?.role === "staff" && <Link href="/staff/orders" className="search-button">Order desk</Link>}
         {session ? (
           <>
             <span className="account-greeting">Hi, {session.name || "there"}</span>
